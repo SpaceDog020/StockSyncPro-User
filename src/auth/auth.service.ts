@@ -47,13 +47,17 @@ export class AuthService {
     }
 
     newUser.password = await encryptPassword(newUser.password);
-
-    const user: User = await this.userService.createUser(newUser);
-
-    if(user){
-      response.succcess = true;
+    try{
+      const user: User = await this.userService.createUser({email: newUser.email, password: newUser.password});
+      if(user){
+        response.succcess = true;
+      }
+      return response;
+    }catch{
+      response.error = {message: 'Error al registrar usuario'};
+      return response;
     }
-    return response;
+    
   }
 
 }

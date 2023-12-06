@@ -23,6 +23,7 @@
     "proto:all": "npm run proto:install && npm run proto:user"
   },
   "dependencies": {
+    "@grpc/grpc-js": "^1.9.12",
     "@nestjs/apollo": "^12.0.11",
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",

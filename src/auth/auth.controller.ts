@@ -8,12 +8,12 @@ import { CredentialsRequest, LoginUserResponse, RegisterUserResponse } from 'src
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
-  @GrpcMethod('AuthService', 'Login')
+  @GrpcMethod('UserService', 'login')
   async login(data: CredentialsRequest): Promise<LoginUserResponse> {
     return this.authService.signIn(data);
   }
 
-  @GrpcMethod('AuthService', 'Register')
+  @GrpcMethod('UserService', 'register')
   async register(data: CredentialsRequest): Promise<RegisterUserResponse> {
     return this.authService.register(data);
   }
