@@ -10,7 +10,6 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 import { join } from 'path';
-import { PruebaModule } from './prueba/prueba.module';
 
 
 @Module({
@@ -20,8 +19,7 @@ import { PruebaModule } from './prueba/prueba.module';
     playground: false,
     autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     plugins: [ApolloServerPluginLandingPageLocalDefault()],
-  }),
-    PruebaModule
+  })
 ],
   controllers: [AppController],
   providers: [AppService],
