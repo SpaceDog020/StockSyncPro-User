@@ -3,8 +3,7 @@
 # ------------------------------------------------------
 
 type Auth {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  access_token: String!
 }
 
 type Query {
