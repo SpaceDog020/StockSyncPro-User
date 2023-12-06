@@ -17,7 +17,10 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "proto:install": "npm i git+https://github.com/SpaceDog020/StockSyncPro-Protos.git",
+    "proto:user": "protoc --plugin=node_modules/.bin/protoc-gen-ts_proto.cmd -I=./node_modules/protos/proto --ts_proto_out=src/user/ node_modules/protos/proto/user.proto --ts_proto_opt=nestJs=true --ts_proto_opt=fileSuffix=.pb",
+    "proto:all": "npm run proto:install && npm run proto:user"
   },
   "dependencies": {
     "@nestjs/apollo": "^12.0.11",
@@ -25,6 +28,8 @@
     "@nestjs/core": "^10.0.0",
     "@nestjs/graphql": "^12.0.11",
     "@nestjs/jwt": "^10.2.0",
+    "@nestjs/mapped-types": "*",
+    "@nestjs/microservices": "^10.2.10",
     "@nestjs/mongoose": "^10.0.2",
     "@nestjs/platform-express": "^10.0.0",
     "apollo-server-core": "^3.13.0",
@@ -32,8 +37,10 @@
     "class-validator": "^0.14.0",
     "dotenv": "^16.3.1",
     "mongoose": "^8.0.2",
+    "protos": "github:SpaceDog020/StockSyncPro-Protos",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "ts-proto": "^1.165.1"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
