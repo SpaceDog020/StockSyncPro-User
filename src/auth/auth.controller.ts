@@ -2,7 +2,7 @@
 import { Controller } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
 import { AuthService } from './auth.service';
-import { CredentialsRequest, LoginUserResponse, RegisterUserResponse } from 'src/user/user.pb';
+import { CredentialsRequest, LoginUserResponse, RegisterUserResponse } from '../user/user.pb';
 
 @Controller('auth')
 export class AuthController {
