@@ -14,7 +14,7 @@ export interface CredentialsRequest {
 }
 
 export interface RegisterUserResponse {
-  succcess: boolean;
+  success: boolean;
   error: Error | undefined;
 }
 
