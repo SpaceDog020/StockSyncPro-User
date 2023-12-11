@@ -19,14 +19,12 @@ export class AuthService {
     var response: LoginUserResponse = {token: "", error: undefined};
     if(!validatePassword(dataLogin.password)){
       response.error = {message: 'Contraseña concumple con los requerimientos'};
-      //throw new HttpException('Contraseña concumple con los requerimientos', HttpStatus.UNAUTHORIZED);
       return response;
     }
 
     const user: User = await this.userService.findOne(dataLogin.email);
     if(!await comparePassword(dataLogin.password, user.password)){
       response.error = {message: 'No autorizado, revisar credenciales'};
-      //throw new HttpException('No autorizado, revisar credenciales', HttpStatus.UNAUTHORIZED);
       return response;
     }
 
