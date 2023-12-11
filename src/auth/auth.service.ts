@@ -41,7 +41,7 @@ export class AuthService {
   async register(newUser: CredentialsRequest): Promise<RegisterUserResponse> {
     var response: RegisterUserResponse = {success: false, error: undefined};
     if(!validatePassword(newUser.password)){
-      response.error = {message: 'Contraseña concumple con los requerimientos'};
+      response.error = {message: 'Contraseña no cumple con los requerimientos'};
       //throw new HttpException('Contraseña concumple con los requerimientos', HttpStatus.UNAUTHORIZED);
       return response;
     }
