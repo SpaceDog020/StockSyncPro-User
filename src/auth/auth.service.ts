@@ -1,12 +1,10 @@
-import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { comparePassword, encryptPassword } from 'src/validation/encrypt';
-import { UserService } from 'src/user/user.service';
+import { Injectable } from '@nestjs/common';
+import { comparePassword, encryptPassword } from '../validation/encrypt';
+import { UserService } from '../user/user.service';
 import { JwtService } from '@nestjs/jwt';
-import { CreateUserDto } from 'src/user/dto/create-user.dto';
-import { validatePassword } from 'src/validation/isStrongPassword';
-import { LoginUserDto } from './dto/login-auth.dto';
-import { User } from 'src/schema/user.schema';
-import { CredentialsRequest, LoginUserResponse, RegisterUserResponse } from 'src/user/user.pb';
+import { validatePassword } from '../validation/isStrongPassword';
+import { User } from '../schema/user.schema';
+import { CredentialsRequest, LoginUserResponse, RegisterUserResponse } from '../user/user.pb';
 
 @Injectable()
 export class AuthService {
